@@ -1,12 +1,18 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react' // ZERO useEffect aqui
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Calendar, Clock, Scissors, ChevronRight, Check, CreditCard } from 'lucide-react'
 import Image from 'next/image'
-
-// Resgatando a nossa lista padrão de barbeiros locais do seu arquivo de dados
 import { BARBERS } from '@/data/barbers'
+
+// 💡 Definição exata das propriedades que o componente aceita
+interface BookingProps {
+  selectedBarber: string
+  setSelectedBarber: (name: string) => void
+  step: number
+  setStep: (step: number) => void
+}
 
 const SERVICES = [
   { name: 'Corte Clássico', price: 'R$ 45', numericPrice: 45, duration: '30 min' },
@@ -21,19 +27,19 @@ const TIME_SLOTS = [
   '17:00', '17:30', '18:00', '18:30', '19:00', '19:30',
 ]
 
-export function Booking() {
+// 💡 Injetado as Props na assinatura da função para o React ler os dados do Modal
+export function Booking({ selectedBarber, setSelectedBarber, step, setStep }: BookingProps) {
   const headerRef = useRef(null)
   const isHeaderInView = useInView(headerRef, { once: true })
   
-  const [step, setStep] = useState(1)
-  const [selectedBarber, setSelectedBarber] = useState('')
+  // 💡 Mantenha apenas os estados que pertencem exclusivamente ao formulário interno:
   const [selectedService, setSelectedService] = useState('')
   const [selectedDate, setSelectedDate] = useState('')
   const [selectedTime, setSelectedTime] = useState('')
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
-
+  
   const getNextDays = () => {
     const days = []
     const today = new Date()
@@ -66,7 +72,6 @@ export function Booking() {
     }
 
     try {
-      // Aqui seu Next.js chama a rota do Node.js que criaremos na sequência
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -76,7 +81,6 @@ export function Booking() {
       const data = await response.json()
 
       if (data.init_point) {
-        // Redireciona o cliente direto para a tela segura de pagamento (Pix/Cartão)
         window.location.href = data.init_point
       } else {
         alert('Erro ao gerar o link de pagamento. Tente novamente.')
@@ -260,7 +264,6 @@ export function Booking() {
               </motion.div>
             </div>
 
-            {/* Resumo Brutalista */}
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -305,7 +308,7 @@ export function Booking() {
               disabled={!name || !phone || isSubmitting}
               className="w-full py-4 bg-black text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 hover:bg-zinc-900 transition-colors disabled:opacity-30 disabled:cursor-not-allowed border-2 border-black"
             >
-              <CreditCard className="w-4 h-4" />
+              
               {isSubmitting ? 'Processando...' : 'Ir para o Pagamento (PIX / Cartão)'}
             </motion.button>
           </div>
@@ -393,6 +396,7 @@ export function Booking() {
             </button>
           )}
 
+          {/* Box do Plano Mensal */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

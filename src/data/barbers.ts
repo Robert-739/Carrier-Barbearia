@@ -1,40 +1,53 @@
 export interface Barber {
-  id: string;
-  name: string;
-  role?: string;
-  bio: string;
-  image: string;
-  instagram: string;
+  id: number
+  name: string
+  role?: string
+  image: string
+  instagram: string
+  videoSrc: string // Caminho do vídeo (ex: /videos/flavio.mp4)
+  bio?: string
+  specialties: string[]
 }
 
 export const BARBERS: Barber[] = [
-  {
-    id: "1",
-    name: "Rafael Carrier",
-    role: "Fundador",
-    bio: "Com mais de 10 anos de estrada, Alex fundou a Carrier com a missão de elevar o padrão da barbearia em Limeira através da precisão técnica.",
-    image: "/Rafael.png",
-    instagram: "@alexcarrier",
+  { 
+    id: 1, 
+    name: 'Rafael Carrier', 
+    role: 'Fundador',
+    image: '/fotos/Rafael.png',
+    instagram: 'rafacarrier_',
+    videoSrc: '/videos/teste-rafael.mp4', 
+    bio: 'Mais de 6 anos de experiência cortando nas principais capitais urbanas. Domina a técnica do fade cirúrgico e texturizações modernas.',
+    specialties: ['High Fade', 'Luzes']
   },
-  {
-    id: "2",
-    name: "Udison",
-    bio: "Referência em cortes degradê e freestyle. Jonas traz a cultura urbana e o streetwear para cada acabamento.",
-    image: "/Udison.png",
-    instagram: "@jonasfade",
+  { 
+    id: 2, 
+    name: 'Udison Henrique', 
+    role: '',
+    image: '/fotos/Udison.png',
+    instagram: 'udison_style019',
+    videoSrc: '/videos/udison-presentation.mp4',
+    bio: '',
+    specialties: ['Buzz Cut', 'Hair Design / Riscos',]
   },
-  {
-    id: "3",
-    name: "Flavio Lucca.",
-    bio: "Marcus é o mestre do visagismo. Ele não apenas corta, ele molda o rosto do cliente através de um design de barba impecável.",
-    image: "/Flavio.png",
-    instagram: "@marcusbarba",
+  { 
+    id: 3, 
+    name: 'Flavio Lucca', 
+    role: '',
+    image: '/fotos/Flavio.png',
+    instagram: 'flaviolucca1',
+    videoSrc: '/videos/rafael-presentation.mp4',
+    bio: '',
+    specialties: ['Fade', 'Barba']
   },
-  {
-    id: "4",
-    name: "?????",
-    bio: "??????????????????",
-    image: "/pedra.png",
-    instagram: "?",
+  { 
+    id: 4, 
+    name: '??????', 
+    role: '',
+    image: '/fotos/pedra.png',
+    instagram: 'carrierbarbearia_',
+    videoSrc: '/videos/?????????.mp4',
+    bio: '',
+    specialties: ['Barba', 'Degradê']
   },
-];
+]

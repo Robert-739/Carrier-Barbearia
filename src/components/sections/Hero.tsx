@@ -8,8 +8,8 @@ import Link from 'next/link'
 
 export function Hero() {
   return (
-    <section 
-      id="inicio" 
+    <section
+      id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white text-black"
     >
       {/* 📸 IMAGEM DE PEDRA COMO FUNDO DA SEÇÃO */}
@@ -17,7 +17,7 @@ export function Hero() {
         {/* ^ Controle a opacidade aqui (0.12 = 12%). 
               Se quiser a pedra mais escura ou mais visível, mude esse valor (ex: opacity-20 ou opacity-5) */}
         <Image
-          src="/pedra.png" // Certifique-se de que está na pasta public/pedra.png
+          src="/fotos/pedra.png" // Certifique-se de que está na pasta public/pedra.png
           alt="Textura de fundo Carrier"
           fill
           priority
@@ -44,7 +44,7 @@ export function Hero() {
       {/* 📦 CONTEÚDO PRINCIPAL (Fica por cima de tudo graças ao z-10) */}
       <div className="container mx-auto px-4 relative z-10 flex justify-center">
         <div className="flex flex-col items-center text-center max-w-4xl">
-          
+
           {/* Slot para a LOGO PNG da barbearia */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -52,22 +52,22 @@ export function Hero() {
             transition={{ duration: 0.8 }}
             className="relative w-full max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl px-4"
           >
-            <div className="relative scale-250 w-full h-32 sm:h-40 md:h-48 flex justify-center">
+            <div className="relative w-full h-24 sm:h-36 md:h-48 lg:h-56 flex justify-center">
               <Image
-                src="/logo-preta.png"
+                src="/fotos/logo-preta.png"
                 alt="Carrier Barbearia Logo"
                 fill
                 priority
-                className="object-contain"
+                className="object-contain px-2" // Adicionado um pequeno padding para não colar nas bordas em celulares muito finos
               />
             </div>
-            
+
             {/* Linha brutalista preta abaixo da logo */}
-            
+
           </motion.div>
 
           {/* Subtitle */}
-          
+
 
           {/* Tagline */}
           <motion.p
@@ -76,7 +76,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1 }}
             className="text-zinc-600 text-base md:text-lg max-w-md mt-6 text-pretty font-medium"
           >
-            Transformamos cortes em expressões de personalidade. 
+            Transformamos cortes em expressões de personalidade.
             Bem-vindo à nova era da barbearia.
           </motion.p>
 
@@ -118,7 +118,7 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ 
+        transition={{
           opacity: { delay: 1.5, duration: 0.5 },
           y: { duration: 2, repeat: Infinity, delay: 1.5 }
         }}

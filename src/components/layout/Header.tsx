@@ -39,7 +39,7 @@ export const Header = () => {
                 {/* 🎯 CONTAINER DA LOGO CORRIGIDO */}
                 <div className="relative flex items-center h-full">
                     <Image
-                        src="/logo-header.png"
+                        src="/fotos/logo-header.png"
                         alt="Carrier Barbearia Logo"
                         width={160} // Reduzido um pouco para manter a proporção sutil
                         height={40}

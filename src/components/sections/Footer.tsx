@@ -41,7 +41,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-center order-1 md:order-2">
           <div className="relative w-full max-w-[150px] h-32 flex justify-center items-center">
             <Image
-              src="/logo-carrier.png" // O arquivo que você comentou que tem aí!
+              src="/fotos/logo-carrier.png" // O arquivo que você comentou que tem aí!
               alt="Carrier Barbearia Logo"
               fill
               className="object-contain"

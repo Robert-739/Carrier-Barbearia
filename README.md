@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Carrier Barbearia — Plataforma de Agendamento
 
-## Getting Started
+> Plataforma web completa para barbearia com sistema de agendamento, clube de assinaturas e checkout integrado com Mercado Pago.
 
-First, run the development server:
+🔗 **Deploy:** [carrier-barbearia.vercel.app](https://carrier-barbearia.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Funcionalidades
+
+- **Agendamento online** — sistema de marcação de horários com seleção de serviço, barbeiro e data *(em desenvolvimento)*
+- **Clube de assinaturas** — planos mensais com checkout transparente *(em desenvolvimento)*
+- **Pagamentos integrados** — integração com Mercado Pago API *(em desenvolvimento)*
+- **Banco de dados** — persistência com Supabase (PostgreSQL)
+- **Design customizado** — identidade visual própria com tipografia forte e estética urbana
+- **Totalmente responsivo** — adaptado para mobile, tablet e desktop
+
+---
+
+## 🛠️ Stack
+
+| Tecnologia | Uso |
+|---|---|
+| Next.js 14 | Framework principal e roteamento |
+| React | Componentização da interface |
+| TypeScript | Tipagem estática |
+| Tailwind CSS | Estilização utilitária |
+| Supabase | Banco de dados e autenticação |
+| Mercado Pago API | Processamento de pagamentos |
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+Carrier-Barbearia/
+├── app/
+│   ├── layout.tsx       # Metadata e configuração global
+│   ├── page.tsx         # Página principal
+│   └── globals.css      # Estilos globais
+├── components/          # Componentes reutilizáveis
+├── public/              # Assets e imagens
+└── lib/                 # Configuração do Supabase e utilitários
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Rodando localmente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Clone o repositório
+git clone https://github.com/Robert-739/Carrier-Barbearia.git
 
-## Learn More
+# Instale as dependências
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# Configure as variáveis de ambiente
+cp .env.example .env.local
+# Preencha com suas credenciais do Supabase e Mercado Pago
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Rode o servidor de desenvolvimento
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔐 Variáveis de Ambiente
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+MERCADOPAGO_ACCESS_TOKEN=
+```
+
+---
+
+## 📌 Status do Projeto
+
+| Funcionalidade | Status |
+|---|---|
+| Interface e design | ✅ Concluído |
+| Responsividade | ✅ Concluído |
+| Agendamento | 🔄 Em desenvolvimento |
+| Pagamentos (Mercado Pago) | 🔄 Em desenvolvimento |
+| Autenticação (Supabase) | 🔄 Em desenvolvimento |
+
+---
+
+Desenvolvido por [Robert Pereira](https://github.com/Robert-739)
